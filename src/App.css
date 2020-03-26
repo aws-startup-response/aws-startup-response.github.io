@@ -1,46 +1,81 @@
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .navbar-brand.title{
+    font-size: 1.25em !important;
+  }
+  
+  .navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+  }
+  
+  .App .row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .App h5{
+  
+    font-size: 1rem;
+  }
+  
+
+}
+
+
+.emailColumn .emailButton {
+  
+  display: inline;
+}
+
+
+
+
+.App .companyRow .emailButton a {
+  color: white;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+
 .container{
   margin-top: 10px;
 }
 
 
-.navbar-brand{
-  font-size: 2em !important;
+.navbar-brand.title{
+  font-size: 2em;
 }
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
 
-/*.App-logo {*/
-/*  height: 40vmin;*/
-/*  pointer-events: none;*/
-/*}*/
+.companyRow:nth-child(even){
+  
+  
+}
 
-/*@media (prefers-reduced-motion: no-preference) {*/
-/*  .App-logo {*/
-/*    animation: App-logo-spin infinite 20s linear;*/
-/*  }*/
-/*}*/
 
-/*.App-header {*/
-/*  background-color: #282c34;*/
-/*  min-height: 100vh;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  font-size: calc(10px + 2vmin);*/
-/*  color: white;*/
-/*}*/
+.companyRow img{
+  
+  width: 100%;
+}
 
-/*.App-link {*/
-/*  color: #61dafb;*/
-/*}*/
 
-/*@keyframes App-logo-spin {*/
-/*  from {*/
-/*    transform: rotate(0deg);*/
-/*  }*/
-/*  to {*/
-/*    transform: rotate(360deg);*/
-/*  }*/
-/*}*/
+.companyRow{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  
+}
+
+html, body { font-family: "Amazon Ember", "Helvetica", "sans-serif" !important; margin: 0; }
+.App a { color: #FF9900 }
+h1 { font-weight: 300 !important; }

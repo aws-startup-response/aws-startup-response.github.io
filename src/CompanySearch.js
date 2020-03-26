@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import itemsjs from 'itemsjs'; 
 import "react-bootstrap/dist/react-bootstrap.min.js"
+ import { Button, ButtonToolbar} from 'react-bootstrap';
 
 
 class CompanySearch extends React.Component {
@@ -26,6 +27,10 @@ class CompanySearch extends React.Component {
           },
           "C19 SubCat": {
             title: 'Sub Category',
+            size: 10
+          },
+          "Delivery Regions": {
+            title: 'Delivery Regions',
             size: 10
           },
           "C19 Stage": {
@@ -111,7 +116,7 @@ class CompanySearch extends React.Component {
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#" onClick={this.reset.bind(this)}>AWS Startup Pandemic Response</a>
+              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}>AWS Startup Pandemic Response</a>
             </div>
             <div id="navbar">
               <form className="navbar-form navbar-left">
@@ -131,7 +136,7 @@ class CompanySearch extends React.Component {
         */}
 
           <div className="row">
-            <div className="col-md-2 col-xs-2">
+            <div className="col-4 col-md-3">
               {
                 Object.entries(this.searchResult.data.aggregations).map(([key, value]) => {
                   return (
@@ -145,8 +150,8 @@ class CompanySearch extends React.Component {
                               <li key={valueB.key}>
                                 <div className="checkbox block" style={{ marginTop: '0px', marginBottom: '0px' }}>
                                   <label>
-                                    <input className="checkbox" type="checkbox" checked={this.state.filters[value.name].indexOf(valueB.key)>-1 || false} onChange={this.handleCheckbox(value.name, valueB.key)} />
-                                    <span> {valueB.key} ({valueB.doc_count})</span>
+                                    <span><input className="checkbox" type="checkbox" checked={this.state.filters[value.name].indexOf(valueB.key)>-1 || false} onChange={this.handleCheckbox(value.name, valueB.key)} />
+                                     {valueB.key} ({valueB.doc_count})</span>
                                   </label>
                                 </div>
                               </li>
@@ -159,35 +164,36 @@ class CompanySearch extends React.Component {
                 })
               }
             </div>
-            <div className="col-md-10 col-xs-10">
+            <div className="col-8 col-md-9">
             <div className="breadcrumbs"></div>
             <div className="clearfix"></div>
-            <table className="table table-striped">
-              <tbody>
-              {
-              Object.entries(this.searchResult.data.items).map(([key, item]) => {
-              
-                var emailAddresses = item['C19 Primary Email'].replace(/,/g, ';');
-              
-                var contactString = "mailto:" + emailAddresses + "?cc=hcls-startups@amazon.com";
-              
-                return (
-                <tr key={key}>
-                  <td><img style={{width: '100px'}} src={item.image} /></td>
-                  <td></td>
-                  <td>
-                    <b><a href={item["C19 URL"]} target='_blank'> {item.Customer}</a></b>
-                    <br />
-                    {item.Description}
-                  </td>
-                  <td></td>
-                  <td>
-                    <span><b><a href={contactString}> Contact Via Email </a></b></span>
-                  </td>
-                </tr>)})
-              }
-              </tbody>
-            </table>
+            <div className="table table-striped">
+                {
+                  Object.entries(this.searchResult.data.items).map(([key, item]) => {
+                  
+                    var emailAddresses = item['C19 Primary Email'].replace(/,/g, ';');
+                  
+                    var contactString = "mailto:" + emailAddresses + "?cc=hcls-startups@amazon.com";
+                  
+                    return (
+                    <div className="companyRow" key={key}>
+                      <div className='companyIcon'>
+                        
+                      </div>
+                      <div className="companyDescriptionColumn">
+                        <h5><b><a href={item["C19 URL"]} target='_blank'> {item.Customer}</a></b></h5>
+                        <div>
+                            <b>{ item["C19 Cat"] }: { item["C19 SubCat"] }; Delivery Regions: { item['Delivery Regions'] }</b>
+                        </div>
+                        {item.Description}
+                      </div>
+                      <div className="emailColumn">
+                        <span className='emailButton'>  <Button variant="primary" href={contactString}>Contact Via Email</Button> </span>
+                      </div>
+                    </div>)}
+                    )
+                  }
+            </div>
             <div className="clearfix"></div>
           </div>
           </div>
