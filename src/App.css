@@ -2,6 +2,10 @@
   margin-top: 10px;
 }
 
+
+.navbar-brand{
+  font-size: 2em !important;
+}
 /*.App {*/
 /*  text-align: center;*/
 /*}*/

@@ -136,7 +136,7 @@ class CompanySearch extends React.Component {
                 Object.entries(this.searchResult.data.aggregations).map(([key, value]) => {
                   return (
                     <div key={key}>
-                      <h5 style={{ marginBottom: '5px' }}><strong style={{ color: '#337ab7' }}>{value.title}</strong></h5>
+                      <h5 style={{ marginBottom: '5px' }}><strong style={{ color: '#FF9900' }}>{value.title}</strong></h5>
 
                       <ul className="browse-list list-unstyled long-list" style={{ marginBottom: '0px' }}>
                         {
@@ -146,7 +146,7 @@ class CompanySearch extends React.Component {
                                 <div className="checkbox block" style={{ marginTop: '0px', marginBottom: '0px' }}>
                                   <label>
                                     <input className="checkbox" type="checkbox" checked={this.state.filters[value.name].indexOf(valueB.key)>-1 || false} onChange={this.handleCheckbox(value.name, valueB.key)} />
-                                    {valueB.key} ({valueB.doc_count})
+                                    <span> {valueB.key} ({valueB.doc_count})</span>
                                   </label>
                                 </div>
                               </li>
@@ -176,7 +176,7 @@ class CompanySearch extends React.Component {
                   <td><img style={{width: '100px'}} src={item.image} /></td>
                   <td></td>
                   <td>
-                    <b><a href={item["C19 URL"]}> {item.Customer}</a></b>
+                    <b><a href={item["C19 URL"]} target='_blank'> {item.Customer}</a></b>
                     <br />
                     {item.Description}
                   </td>
