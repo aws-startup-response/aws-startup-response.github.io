@@ -38,6 +38,7 @@
   .App .whatThisIsCopy{
     
     display: none;
+    
   }
   
   
@@ -50,20 +51,21 @@
 }
 
 
-.emailColumn .emailButton {
-  
-  display: inline;
+
+.navbar{
+  padding: 0px !important;
 }
 
-
-
-
-.App .companyRow .emailButton a {
+.App .companyRow .emailButton  {
   color: white;
   margin-bottom: 5px;
-  display: block;
+  
 }
 
+
+.whatThisIsCopy {
+  margin-bottom: 15px;  
+}
 
 .companyDescriptionColumn{
   

@@ -130,10 +130,12 @@ class CompanySearch extends React.Component {
           </div>
         </nav>
 
-        <div className="container" style={{ marginTop: '10px' }}>
-        <div className="whatThisIsCopy" style={{ marginBottom: '5px' }}>
-          The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions (e.g. telemedicine, triage, care coordination) into the hands of healthcare providers around the world to enhance their capacity, resiliency and responsiveness in the face of the pandemic.  This site is a first pass to match inbound demand from care providers around the world with the supply of qualified solutions of which we are aware.  Please note that we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution. This list will be frequently updated. If you believe you have a relevant solution and wish us to evaluate for inclusion here
-          , <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
+        <div className="container" >
+        <div className="whatThisIsCopy">
+The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
+If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
+<br />
+<small>*Note, we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution.</small>
         </div>
         {/*  <span>List of Companies ({this.searchResult.pagination.total}) - </span>
           <span className="text-muted">Search performed in {this.searchResult.timings.search} ms, facets in {this.searchResult.timings.facets} ms</span></--!> 
@@ -195,7 +197,7 @@ class CompanySearch extends React.Component {
                           </div>
                           {item['C19 BD Synopsis']}
                           <div className="emailColumn">
-                            <span className='emailButton'>  <Button variant="primary" href={contactString}>Get Introduced to {item.Customer} </Button> </span>
+                            <Button className="emailButton" variant="primary" href={contactString}>Get Introduced to {item.Customer} </Button> 
                           </div>
                       </div>
 
