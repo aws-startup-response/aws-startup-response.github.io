@@ -103,6 +103,7 @@ class CompanySearch extends React.Component {
   get searchResult() {
 
     var result = this.state.itemsjs.search({
+      per_page: 1000,
       query: this.state.query,
       filters: this.state.filters
     })
@@ -130,7 +131,10 @@ class CompanySearch extends React.Component {
         </nav>
 
         <div className="container" style={{ marginTop: '10px' }}>
-
+        <div className="whatThisIsCopy" style={{ marginBottom: '5px' }}>
+          The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions (e.g. telemedicine, triage, care coordination) into the hands of healthcare providers around the world to enhance their capacity, resiliency and responsiveness in the face of the pandemic.  This site is a first pass to match inbound demand from care providers around the world with the supply of qualified solutions of which we are aware.  Please note that we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution. This list will be frequently updated. If you believe you have a relevant solution and wish us to evaluate for inclusion here
+          , <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
+        </div>
         {/*  <span>List of Companies ({this.searchResult.pagination.total}) - </span>
           <span className="text-muted">Search performed in {this.searchResult.timings.search} ms, facets in {this.searchResult.timings.facets} ms</span></--!> 
         */}
@@ -171,25 +175,30 @@ class CompanySearch extends React.Component {
                 {
                   Object.entries(this.searchResult.data.items).map(([key, item]) => {
                   
-                    var emailAddresses = item['C19 Primary Email'].replace(/,/g, ';');
-                  
-                    var contactString = "mailto:" + emailAddresses + "?cc=hcls-startups@amazon.com";
+                    var logoUrl = "";
+                    
+                    if(item["Logo"][0]){
+                      logoUrl = item["Logo"][0]["thumbnails"]["small"]["url"];
+                    }
+
+                    var contactString = "mailto:hcls-startups@amazon.com?subject=Introduction to " + item.Customer;
                   
                     return (
                     <div className="companyRow" key={key}>
                       <div className='companyIcon'>
-                        
+                        <img src={ logoUrl } />
                       </div>
                       <div className="companyDescriptionColumn">
-                        <h5><b><a href={item["C19 URL"]} target='_blank'> {item.Customer}</a></b></h5>
-                        <div>
-                            <b>{ item["C19 Cat"] }: { item["C19 SubCat"] }; Delivery Regions: { item['Delivery Regions'] }</b>
-                        </div>
-                        {item.Description}
+                          <h5><b><a href={item["URL"]} target='_blank'> {item.Customer}</a></b></h5>
+                          <div>
+                              <b>{ item["C19 Cat"] }: { item["C19 SubCat"] }; Delivery Regions: { item['Delivery Regions'].join(" ") }</b>
+                          </div>
+                          {item['C19 BD Synopsis']}
+                          <div className="emailColumn">
+                            <span className='emailButton'>  <Button variant="primary" href={contactString}>Get Introduced to {item.Customer} </Button> </span>
+                          </div>
                       </div>
-                      <div className="emailColumn">
-                        <span className='emailButton'>  <Button variant="primary" href={contactString}>Contact Via Email</Button> </span>
-                      </div>
+
                     </div>)}
                     )
                   }

@@ -28,7 +28,25 @@
     font-size: 1rem;
   }
   
+  .App .companyRow{
 
+    display: flow-root;
+      
+    
+  }
+  
+  .App .whatThisIsCopy{
+    
+    display: none;
+  }
+  
+  
+  .companyIcon img{
+    
+   
+    margin-bottom: 10px;
+    
+  }
 }
 
 
@@ -47,6 +65,10 @@
 }
 
 
+.companyDescriptionColumn{
+  
+  width: 100%;
+}
 
 .container{
   margin-top: 10px;
@@ -62,17 +84,19 @@
   
 }
 
-
-.companyRow img{
+.companyIcon img{
   
-  width: 100%;
+  width: 100px;
+  margin-right: 10px;
+  
 }
-
 
 .companyRow{
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
   
 }
 
