@@ -180,7 +180,8 @@ If you believe you have a relevant solution and wish us to evaluate for inclusio
                     var logoUrl = "";
                     
                     if(item["Logo"][0]){
-                      logoUrl = item["Logo"][0]["thumbnails"]["large"]["url"];
+                      //logoUrl = item["Logo"][0]["thumbnails"]["large"]["url"];
+                      logoUrl = item["Logo"][0]["url"];
                     }
 
                     var contactString = "mailto:hcls-startups@amazon.com?subject=Introduction to " + item.Customer +"&body=(Please include your name, company, and title)";
