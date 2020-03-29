@@ -117,7 +117,7 @@ class CompanySearch extends React.Component {
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}>AWS Startup Pandemic Response</a>
+              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}><img className='awshclsLogo' src={process.env.PUBLIC_URL + 'aws.hcls.logo.png'} /> Startup Pandemic Response</a>
             </div>
             <div id="navbar">
               <form className="navbar-form navbar-left">
@@ -180,10 +180,10 @@ If you believe you have a relevant solution and wish us to evaluate for inclusio
                     var logoUrl = "";
                     
                     if(item["Logo"][0]){
-                      logoUrl = item["Logo"][0]["thumbnails"]["small"]["url"];
+                      logoUrl = item["Logo"][0]["thumbnails"]["large"]["url"];
                     }
 
-                    var contactString = "mailto:hcls-startups@amazon.com?subject=Introduction to " + item.Customer;
+                    var contactString = "mailto:hcls-startups@amazon.com?subject=Introduction to " + item.Customer +"&body=(Please include your name, company, and title)";
                   
                     return (
                     <div className="companyRow" key={key}>
