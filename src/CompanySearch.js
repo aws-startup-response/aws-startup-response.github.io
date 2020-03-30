@@ -26,7 +26,7 @@ class CompanySearch extends React.Component {
             size: 20
           },
           "C19 SubCat": {
-            title: 'Sub Category',
+            title: 'Use Case',
             size: 20
           },
           "Delivery Regions": {
