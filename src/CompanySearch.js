@@ -142,7 +142,7 @@ If you believe you have a relevant solution and wish us to evaluate for inclusio
         */}
 
           <div className="row">
-            <div className="col-4 col-md-3">
+            <div className="col-4 col-md-3 facets">
               {
                 Object.entries(this.searchResult.data.aggregations).map(([key, value]) => {
                   return (
@@ -157,7 +157,7 @@ If you believe you have a relevant solution and wish us to evaluate for inclusio
                                 <div className="checkbox block" style={{ marginTop: '0px', marginBottom: '0px' }}>
                                   <label>
                                     <span><input className="checkbox" type="checkbox" checked={this.state.filters[value.name].indexOf(valueB.key)>-1 || false} onChange={this.handleCheckbox(value.name, valueB.key)} />
-                                     {valueB.key} ({valueB.doc_count})</span>
+                                     &nbsp;{valueB.key} <small>({valueB.doc_count})</small></span>
                                   </label>
                                 </div>
                               </li>
