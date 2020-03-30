@@ -13,7 +13,7 @@ class CompanySearch extends React.Component {
 
     this.state = {
       configuration: {
-        searchableFields: ['Customer', 'Description', 'C19 Soln'],
+        searchableFields: ['Customer', 'Description', 'C19 Soln', "Delivery Regions"],
         sortings: {
           name_asc: {
             field: 'Customer',
@@ -23,19 +23,19 @@ class CompanySearch extends React.Component {
         aggregations: {
           "C19 Cat": {
             title: 'Category',
-            size: 10
+            size: 20
           },
           "C19 SubCat": {
             title: 'Sub Category',
-            size: 10
+            size: 20
           },
           "Delivery Regions": {
             title: 'Delivery Regions',
-            size: 10
+            size: 20
           },
           "C19 Stage": {
             title: 'Stage',
-            size: 10
+            size: 20
           }
         }
       }
