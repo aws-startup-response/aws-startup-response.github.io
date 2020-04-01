@@ -12,6 +12,7 @@ class CompanySearch extends React.Component {
     var rows = props.rows;
 
     this.state = {
+      showSiteSummary: true,
       configuration: {
         searchableFields: ['Customer', 'Description', 'C19 Soln', "Delivery Regions"],
         sortings: {
@@ -59,6 +60,9 @@ class CompanySearch extends React.Component {
       query: '',
       filters: newFilters,
     }
+    
+    
+    this.toggleSiteDescription = this.toggleSiteDescription.bind(this);
   }
 
   changeQuery(e) {
@@ -109,9 +113,19 @@ class CompanySearch extends React.Component {
     })
     return result
   }
+  
+  toggleSiteDescription() {
+    this.setState(state => ({
+      showSiteSummary: !state.showSiteSummary
+    }));
+  }
 
 
   render() {
+    
+    var siteDescToggledOnClass = this.state.showSiteSummary ? "whatThisIsCopy siteDescriptionToggledOn" : "whatThisIsCopy siteDescriptionToggledOff";
+    var siteDescToggledOnCopy = this.state.showSiteSummary ? "More about this site" : "Less about this site";
+    
     return (
       <div>
         <nav className="navbar navbar-default navbar-fixed-top">
@@ -123,23 +137,20 @@ class CompanySearch extends React.Component {
               <form className="navbar-form navbar-left">
                 <div className="form-group">
                   <input type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} className="form-control" placeholder="Search" />
-
                 </div>
               </form>
+              <a className="siteDescriptionToggle" href='#' onClick={this.toggleSiteDescription} > {siteDescToggledOnCopy}</a>
             </div>
           </div>
         </nav>
 
         <div className="container" >
-        <div className="whatThisIsCopy">
-The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
-If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
-<br />
-<small>*Note, we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution.</small>
+        <div className={siteDescToggledOnClass}>
+          The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
+          If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
+          <br />
+          <small>*Note, we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution.</small>
         </div>
-        {/*  <span>List of Companies ({this.searchResult.pagination.total}) - </span>
-          <span className="text-muted">Search performed in {this.searchResult.timings.search} ms, facets in {this.searchResult.timings.facets} ms</span></--!> 
-        */}
 
           <div className="row">
             <div className="col-4 col-md-3 facets">

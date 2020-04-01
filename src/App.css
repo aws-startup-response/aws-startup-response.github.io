@@ -46,9 +46,13 @@
     
   }
   
-  .App .whatThisIsCopy{
+  .App .whatThisIsCopy.siteDescriptionToggledOn{
     
     display: none;
+    
+  }  
+  .App .whatThisIsCopy.siteDescriptionToggledOn{
+    display: in-line;
     
   }
   
@@ -59,7 +63,32 @@
     margin-bottom: 10px;
     
   }
+  
+  .App .siteDescriptionToggle{
+    display: inline;
+  }
 }
+
+
+#navbar{
+  
+  display: flex;
+  align-items: center;
+}
+
+#navbar .form-group {
+    margin-bottom: 0px;
+}
+
+.siteDescriptionToggle{
+  
+  display: none;
+  padding-left: 10px;
+}
+
+
+
+
 
 
 .navbar{
