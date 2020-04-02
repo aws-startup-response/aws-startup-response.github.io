@@ -12,7 +12,7 @@ class CompanySearch extends React.Component {
     var rows = props.rows;
 
     this.state = {
-      showSiteSummary: true,
+      showSiteSummary: false,
       configuration: {
         searchableFields: ['Customer', 'Description', 'C19 Soln', "Delivery Regions"],
         sortings: {
@@ -124,7 +124,7 @@ class CompanySearch extends React.Component {
   render() {
     
     var siteDescToggledOnClass = this.state.showSiteSummary ? "whatThisIsCopy siteDescriptionToggledOn" : "whatThisIsCopy siteDescriptionToggledOff";
-    var siteDescToggledOnCopy = this.state.showSiteSummary ? "More about this site" : "Less about this site";
+    var siteDescToggledOnCopy = this.state.showSiteSummary ? "Less about this site" : "More about this site";
     
     return (
       <div>
