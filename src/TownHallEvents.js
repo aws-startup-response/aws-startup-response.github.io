@@ -25,8 +25,8 @@ const townHalls = [
     If prompted enter the Meeting ID: 4445081663# \\n \\n
 `,
         location: 'https://chime.aws/4445081663',
-        startTime: '2020-04-07T11:00:00-07:00',
-        endTime: '2020-04-07T12:00:00-07:00'
+        startTime: '2020-04-07T11:00:00-04:00',
+        endTime: '2020-04-07T12:00:00-04:00'
       }
     ];
     
