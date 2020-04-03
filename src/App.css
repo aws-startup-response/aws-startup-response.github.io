@@ -1,13 +1,53 @@
 
+.townhallText{
+  
+  
+}
+
+.addToCalendarDiv{
+  
+   
+    padding-left: 10px;
+}
+
 .awshclsLogo{
   width: 180px;
 }
 
+.townhallNotice{
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
+
+.react-add-to-calendar__dropdown{
+  
+  z-index: 10;
+}
+
+.townhallNotice .react-add-to-calendar{
+}
+
+
+@media only screen and (max-width: 990px) {
+
+  .App .addToCalendarDiv {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+  
+  .townhallNotice{
+    display: inline;
+  }
+  
+}
 
 @media only screen and (max-width: 768px) {
   .navbar-brand.title{
     font-size: 1.25em !important;
   }
+  
   
   .App .facets  {
       font-size: .75rem;

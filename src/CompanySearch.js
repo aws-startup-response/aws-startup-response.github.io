@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import itemsjs from 'itemsjs'; 
 import "react-bootstrap/dist/react-bootstrap.min.js"
- import { Button, ButtonToolbar} from 'react-bootstrap';
+import { Button, ButtonToolbar} from 'react-bootstrap';
+import AddToCalendar from 'react-add-to-calendar';
+
 
 
 class CompanySearch extends React.Component {
@@ -10,9 +12,11 @@ class CompanySearch extends React.Component {
     super(props);
 
     var rows = props.rows;
+    var townHalls = props.townHalls;
 
     this.state = {
       showSiteSummary: false,
+      nextTownhallEvent: townHalls[0],
       configuration: {
         searchableFields: ['Customer', 'Description', 'C19 Soln', "Delivery Regions"],
         sortings: {
@@ -125,6 +129,7 @@ class CompanySearch extends React.Component {
     
     var siteDescToggledOnClass = this.state.showSiteSummary ? "whatThisIsCopy siteDescriptionToggledOn" : "whatThisIsCopy siteDescriptionToggledOff";
     var siteDescToggledOnCopy = this.state.showSiteSummary ? "Less about this site" : "More about this site";
+    var calendarLinkUrl = 'webcal://' + window.location.href + 'StartupPandemicResponseVirtualTownhallTelemedicineTriage.ics';
     
     return (
       <div>
@@ -145,13 +150,23 @@ class CompanySearch extends React.Component {
         </nav>
 
         <div className="container" >
+        <div className="townhallNotice">
+            <div className='townhallText'>
+              <b>Join us for  a virtual startup presentation on telemedicine and triage April 7 at 11 am EST </b>
+            </div>
+            <div className='addToCalendarDiv'>
+              <AddToCalendar event={this.state.nextTownhallEvent} />
+            </div>
+        </div>
         <div className={siteDescToggledOnClass}>
           The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
           If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
           <br />
           <small>*Note, we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution.</small>
         </div>
-
+          
+          
+          
           <div className="row">
             <div className="col-4 col-md-3 facets">
               {
