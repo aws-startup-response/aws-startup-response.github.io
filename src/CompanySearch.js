@@ -26,6 +26,10 @@ class CompanySearch extends React.Component {
           }
         },
         aggregations: {
+          "VideoTag": {
+            title: 'Townhall Presenters',
+            size: 20
+          },
           "C19 Cat": {
             title: 'Category',
             size: 20
@@ -152,14 +156,14 @@ class CompanySearch extends React.Component {
         </nav>
 
         <div className="container" >
-        <div className="townhallNotice">
+        {/*<div className="townhallNotice">
             <div className='townhallText'>
               <b>Join us for  a virtual startup presentation on telemedicine and triage April 7 at 11 am EST </b>
             </div>
             <div className='addToCalendarDiv'>
               <AddToCalendar event={this.state.nextTownhallEvent} />
             </div>
-        </div>
+        </div>*/}
         <div className={siteDescToggledOnClass}>
           The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
           If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
@@ -212,12 +216,16 @@ class CompanySearch extends React.Component {
                       logoUrl = item["Logo"][0]["url"];
                     }
                     
-                    function townhallVideoPrezo(props) {
-                      return (
-                        <div className='townhallLinkSeciton' >
-                          <a href={item["C19 Video"]} >Watch the AWS Startup Pandemic Townhall featuring {item.Customer}</a>
-                        </div>
-                      )
+                    function TownhallVideoPrezo(params) {
+                    
+                      if(params.videoUrl == ""){
+                        return <div></div>
+                      } else {
+                        return <div className='townhallLinkSection' >
+                            <a href={params.videoUrl} target='_blank' >Watch the AWS Startup Pandemic Response Townhall featuring {params.cutomerName}</a>
+                          </div>
+                                                
+                      }
                     }
                     
 
@@ -233,7 +241,7 @@ class CompanySearch extends React.Component {
                           <div>
                               <b>{ item["C19 Cat"] }: { item["C19 SubCat"] }; Delivery Regions: { item['Delivery Regions'].join(" ") }</b>
                           </div>
-
+                          <TownhallVideoPrezo cutomerName={item.Customer}  videoUrl={item["C19 Video"]} />
                           {item['C19 BD Synopsis']}
                           <div className="emailColumn">
                             <Button className="emailButton" variant="primary" href={contactString}>Get Introduced to {item.Customer} </Button> 
