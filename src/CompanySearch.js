@@ -18,7 +18,7 @@ class CompanySearch extends React.Component {
       showSiteSummary: false,
       nextTownhallEvent: townHalls[0],
       configuration: {
-        searchableFields: ['Customer', 'Description', 'C19 Soln', "Delivery Regions"],
+        searchableFields: ['Customer', 'Description', 'C19 Soln', 'Delivery Regions', 'C19 Tags'],
         sortings: {
           name_asc: {
             field: 'Customer',
@@ -30,9 +30,9 @@ class CompanySearch extends React.Component {
             title: 'Category',
             size: 20
           },
-          "C19 SubCat": {
+          "C19 Tags": {
             title: 'Use Case',
-            size: 20
+            size: 50
           },
           "Delivery Regions": {
             title: 'Delivery Regions',
@@ -131,6 +131,8 @@ class CompanySearch extends React.Component {
     var siteDescToggledOnCopy = this.state.showSiteSummary ? "Less about this site" : "More about this site";
     var calendarLinkUrl = 'webcal://' + window.location.href + 'StartupPandemicResponseVirtualTownhallTelemedicineTriage.ics';
     
+
+    
     return (
       <div>
         <nav className="navbar navbar-default navbar-fixed-top">
@@ -209,6 +211,15 @@ class CompanySearch extends React.Component {
                       //logoUrl = item["Logo"][0]["thumbnails"]["large"]["url"];
                       logoUrl = item["Logo"][0]["url"];
                     }
+                    
+                    function townhallVideoPrezo(props) {
+                      return (
+                        <div className='townhallLinkSeciton' >
+                          <a href={item["C19 Video"]} >Watch the AWS Startup Pandemic Townhall featuring {item.Customer}</a>
+                        </div>
+                      )
+                    }
+                    
 
                     var contactString = "mailto:hcls-startups@amazon.com?subject=Introduction to " + item.Customer +"&body=(Please include your name, company, and title)";
                   
@@ -222,6 +233,7 @@ class CompanySearch extends React.Component {
                           <div>
                               <b>{ item["C19 Cat"] }: { item["C19 SubCat"] }; Delivery Regions: { item['Delivery Regions'].join(" ") }</b>
                           </div>
+
                           {item['C19 BD Synopsis']}
                           <div className="emailColumn">
                             <Button className="emailButton" variant="primary" href={contactString}>Get Introduced to {item.Customer} </Button> 
