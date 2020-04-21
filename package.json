@@ -2,7 +2,7 @@
   "name": "covid-connections",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://aws-startup-pandemic-response.github.io/",
+  "homepage": "http://aws-startup-response.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
