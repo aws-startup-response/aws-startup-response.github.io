@@ -1,1 +1,1 @@
-Initial commit.
+Supporting codebase for the AWS-Startup-Response microsite. 
