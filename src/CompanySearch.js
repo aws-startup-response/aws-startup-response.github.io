@@ -142,7 +142,7 @@ class CompanySearch extends React.Component {
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}><img className='awshclsLogo' src={process.env.PUBLIC_URL + 'aws.hcls.logo.png'} /> Startup Response</a>
+              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}><img className='awshclsLogo' src={process.env.PUBLIC_URL + 'aws.hcls.logo.png'} /> Startup Emergency Response</a>
             </div>
             <div id="navbar">
               <form className="navbar-form navbar-left">
@@ -222,7 +222,7 @@ class CompanySearch extends React.Component {
                         return <div></div>
                       } else {
                         return <div className='townhallLinkSection' >
-                            <a href={params.videoUrl} target='_blank' >Watch the AWS Startup Response Townhall featuring {params.cutomerName}</a>
+                            <a href={params.videoUrl} target='_blank' >Watch the AWS Startup Emergency Response Townhall featuring {params.cutomerName}</a>
                           </div>
                                                 
                       }
