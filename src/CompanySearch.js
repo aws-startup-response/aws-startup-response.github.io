@@ -142,7 +142,7 @@ class CompanySearch extends React.Component {
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}><img className='awshclsLogo' src={process.env.PUBLIC_URL + 'aws.hcls.logo.png'} /> Startup Emergency Response</a>
+              <a className="navbar-brand title" href="#" onClick={this.reset.bind(this)}><img className='awshclsLogo' src={process.env.PUBLIC_URL + 'aws.hcls.logo.png'} /> Startup Healthcare Response</a>
             </div>
             <div id="navbar">
               <form className="navbar-form navbar-left">
@@ -156,14 +156,11 @@ class CompanySearch extends React.Component {
         </nav>
 
         <div className="container" >
-        {/*<div className="townhallNotice">
+        <div className="townhallNotice">
             <div className='townhallText'>
-              <b>Join us for  a virtual startup presentation on telemedicine and triage April 7 at 11 am EST </b>
+              <b>Join us every <a href=' https://awsstartuphealthcareresponseoh.splashthat.com/' target='_blank'>Wed @11 am EDT for a series of Office Hours</a> - an educational discussion between global healthcare community and vetted startups with proven healthcare solutions. </b>
             </div>
-            <div className='addToCalendarDiv'>
-              <AddToCalendar event={this.state.nextTownhallEvent} />
-            </div>
-        </div>*/}
+        </div>
         <div className={siteDescToggledOnClass}>
           The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
           If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
@@ -222,7 +219,7 @@ class CompanySearch extends React.Component {
                         return <div></div>
                       } else {
                         return <div className='townhallLinkSection' >
-                            <a href={params.videoUrl} target='_blank' >Watch the AWS Startup Emergency Response Townhall featuring {params.cutomerName}</a>
+                            <a href={params.videoUrl} target='_blank' >Watch the AWS Startup Healthcare Response Townhall featuring {params.cutomerName}</a>
                           </div>
                                                 
                       }
