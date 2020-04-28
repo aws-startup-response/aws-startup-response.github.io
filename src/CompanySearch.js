@@ -27,7 +27,7 @@ class CompanySearch extends React.Component {
         },
         aggregations: {
           "VideoTag": {
-            title: 'Townhall Presenters',
+            title: 'Office Hours Presenters',
             size: 20
           },
           "C19 Cat": {
@@ -162,7 +162,7 @@ class CompanySearch extends React.Component {
             </div>
         </div>
         <div className={siteDescToggledOnClass}>
-          The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from care providers around the world with best-in-breed solutions.
+          The healthcare startup team at AWS is working to more rapidly get relevant, production-ready, clinically-adopted solutions into the hands of healthcare providers around the world. This site is an evolving effort to match inbound demand from global healthcare organizations with best-in-breed partner solutions.
           If you believe you have a relevant solution and wish us to evaluate for inclusion, <a href='https://airtable.com/shr4TqPNqXOtNojvj/' target="_blank"> please let us know here.</a>
           <br />
           <small>*Note, we are looking to connect parties who will then evaluate one another for suitability and fit. Nothing herein should be considered an endorsement of any particular company or solution.</small>
